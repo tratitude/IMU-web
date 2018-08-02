@@ -1,0 +1,5 @@
+{
+	"python.pythonPath": "/home/fdmdkw/django/bin/python",
+	"python.terminal.activateEnvironment": true,
+	"python.venvPath": "/home/fdmdkw/django",
+}
