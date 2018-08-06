@@ -7,4 +7,6 @@
     3. 完成測試後再merge到master branch
     4. 測試master是否能用
 - 參考範例
-    - 這本書裡面的範例code [Python架站特訓班：Django最強實戰](http://books.gotop.com.tw/download/ACL051400)
+    - Python架站特訓班：Django最強實戰
+        - 這本書裡面的範例code [Python架站特訓班：Django最強實戰](http://books.gotop.com.tw/download/ACL051400)
+        - 目錄 [Python架站特訓班：Django最強實戰](http://www.books.com.tw/products/0010762818)
