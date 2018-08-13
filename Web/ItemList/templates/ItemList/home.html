@@ -24,20 +24,23 @@
 
 <!--印出商品-->
 <table border="1" cellpadding="0" cellspacing="0">
-        <th>商品名稱</th>
+        <!--<th>商品名稱</th>
         <th>商品價格</th>
-        <th>備註</th>
         <th>照片URL</th>
+        <th>備註</th>
         <th>賣家</th>
-        <th>更新時間</th>
+        <th>更新時間</th>-->
 {%for Item in Items%}
 <tr>
+    <td>{{Item.photo}}</td>
+</tr><tr>
 	<td>{{Item.Name}}</td>
+</tr><tr>
 	<td>{{Item.price}}</td>
-	<td>{{Item.content}}</td>
-	<td>{{Item.photo}}</td>
+    <!--<td>{{Item.content}}</td>
 	<td>{{Item.seller}}</td>
 	<td>{{Item.created_at}}</td>
+    -->
 </tr>
 {%endfor%}
 </table>
