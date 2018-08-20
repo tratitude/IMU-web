@@ -14,7 +14,7 @@
 	</style>
 </head>
 <body>
-<h1>下列為商品資訊</h1>
+<h1>下列為{{Id.Name}}資訊</h1>
 
 <!--搜尋商品-->
 <form action="/list/" method="post">
@@ -23,33 +23,29 @@
     <input type="submit" value="確認">
     <input type="hidden" name="ok" value="yes">
 </form>
-
 <br>
 
 <!--印出商品-->
 <table style="text-align:center;" border="1" cellpadding="0" cellspacing="0" align="center" valign="middle">
-        <!--<th>商品名稱</th>
-        <th>商品價格</th>
-        <th>照片URL</th>
+    <tr><th>照片</th>
+        <th>商品名稱</th>
+        <th>價格</th>
         <th>備註</th>
         <th>賣家</th>
-        <th>更新時間</th>-->
-    <tr><td>照片</td>
-        <td>商品名稱</td>
-        <td>價格</td>
+        <th>更新時間</th>
     </tr>
-{%for Item in Items%}
 <tr>
-    <td> <a href="pd/{{Item.Identity}}/"><img src="/media/{{ Item.photo }}"></a></td>
-    <td>{{Item.Name}}</td>
-	<td>{{Item.price}}</td>
-    <!--<td>{{Item.content}}</td>
-	<td>{{Item.seller}}</td>
-	<td>{{Item.created_at}}</td>
-    -->
+    <td> <img src="/media/{{ Id.photo }}"></td>
+    <td>{{Id.Name}}</td>
+	<td>{{Id.price}}</td>
+    <td>{{Id.content}}</td>
+	<td>{{Id.seller}}</td>
+	<td>{{Id.created_at}}</td>
+
 </tr>
-{%endfor%}
+
 </table>
+<h1>-----------------尚有各種資訊待新增--------------<h1>
 <br>
 
 <em>{{ current_time }}</em>

@@ -1,6 +1,10 @@
-﻿from django.shortcuts import render
+﻿from django.shortcuts import get_object_or_404, render
 from datetime import datetime
 from ItemList.models import Item
+
+def pd(request,Identity):
+        Id = get_object_or_404(Item, Identity=Identity)
+        return render(request, 'ItemList/Detail.html', {'Id': Id})
 
 def list(request):
     if  'ok' in request.POST:
@@ -8,11 +12,13 @@ def list(request):
         Items = Item.objects.filter(Name__icontains=Name)
         return render(request, 'ItemList/home.html',locals())
     else:
+
         Items = Item.objects.all().order_by('-Name')
         mycontext = {
          'current_time': str(datetime.now())
         }
         return render(request, 'ItemList/home.html', locals())
+
 def listone(request):
     try:
         unit = Item.objects.get(Name="智慧型手機")
@@ -31,4 +37,4 @@ def show(request):
     context = {
         'Items'  :   Items
     }
-    return render(request,'ItemList/show.html',context)
+    return render(request,'ItemList/Detail.html',context)
