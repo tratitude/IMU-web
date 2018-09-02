@@ -13,19 +13,37 @@
 	}
 	</style>
 </head>
-<body>
-<h1>下列為商品資訊</h1>
+<table>
+<h1><a href="">首頁</a></h1>
 
 <!--搜尋商品-->
 <form action="/list/" method="post">
     <label for="Name">商品名稱: </label>
     <input id="Name" type="text" name="Name">
     <input type="submit" value="確認">
-    <input type="hidden" name="ok" value="yes">
+    <input type="hidden" name="ok" value="yes"><br>
+    排序方式：
+    <a href="price">價格&nbsp&nbsp&nbsp</a>
+    <a href="Name">名稱&nbsp&nbsp&nbsp</a>
+    <a href="created_at">新增時間</a>
+
 </form>
 
 <br>
+<table border=0 valign="top" width="100%">
+    <tr>
+    <td valign="top" align="left">
+       <table border="1" valign="top" width="100%">
 
+    <th style="valign:top; width:100%;">商品類別</th>
+    {%for ItemTag in ItemTags %}
+           <tr>
+               <td align="center"><a href="{{ItemTag.Tag}}">{{ItemTag.Tag}}</a></td>
+       </tr>
+    {%endfor%}
+       </table>
+        </td>
+    <td >
 <!--印出商品-->
 <table style="text-align:center;" border="1" cellpadding="0" cellspacing="0" align="center" valign="middle">
         <!--<th>商品名稱</th>
@@ -34,13 +52,13 @@
         <th>備註</th>
         <th>賣家</th>
         <th>更新時間</th>-->
-    <tr><td>照片</td>
-        <td>商品名稱</td>
-        <td>價格</td>
+    <tr><th>照片</th>
+        <th>商品名稱</th>
+        <th>價格</th>
     </tr>
 {%for Item in Items%}
 <tr>
-    <td> <a href="pd/{{Item.Identity}}/"><img src="/media/{{ Item.photo }}"></a></td>
+    <td width:100%; height:auto;> <a href="pd/{{Item.Identity}}/"><img src="/media/{{ Item.photo }}"></a></td>
     <td>{{Item.Name}}</td>
 	<td>{{Item.price}}</td>
     <!--<td>{{Item.content}}</td>
@@ -49,6 +67,9 @@
     -->
 </tr>
 {%endfor%}
+</table>
+    </td>
+</tr>
 </table>
 <br>
 
