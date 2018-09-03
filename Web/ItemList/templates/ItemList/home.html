@@ -56,11 +56,11 @@
         <th>商品名稱</th>
         <th>價格</th>
     </tr>
-{%for Item in Items%}
+{%for contact in contacts%}
 <tr>
-    <td width:100%; height:auto;> <a href="pd/{{Item.Identity}}/"><img src="/media/{{ Item.photo }}"></a></td>
-    <td>{{Item.Name}}</td>
-	<td>{{Item.price}}</td>
+    <td width:100%; height:auto;> <a href="pd/{{contact.Identity}}/"><img src="/media/{{ contact.photo }}"></a></td>
+    <td>{{contact.Name}}</td>
+	<td>{{contact.price}}</td>
     <!--<td>{{Item.content}}</td>
 	<td>{{Item.seller}}</td>
 	<td>{{Item.created_at}}</td>
@@ -70,6 +70,23 @@
 </table>
     </td>
 </tr>
+   <div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+            <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 </table>
 <br>
 

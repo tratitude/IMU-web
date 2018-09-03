@@ -1,7 +1,7 @@
 ﻿from django.shortcuts import get_object_or_404, render
 from datetime import datetime
 from ItemList.models import Item,ItemTag
-
+from django.core.paginator import Paginator
 def pd(request,Identity):
         Id = get_object_or_404(Item, Identity=Identity)
         return render(request, 'ItemList/Detail.html', {'Id': Id})
@@ -25,15 +25,16 @@ def listfor(request,ord):
             Items = Item.objects.filter(Name__icontains=Name).order_by(ORD)
         else:
             Items = tag.items.filter(Name__icontains=Name).order_by(ORD)
-        if Items:
-            return render(request, 'ItemList/home.html',locals())
-        else:
+        if  not Items:
             return render(request, 'ItemList/None.html',locals())
     else:
         if(tag==None):
             Items = Item.objects.all().order_by(ORD)
         else:
             Items = tag.items.all().order_by(ORD)
+    paginator = Paginator(Items,5)
+    page = request.GET.get('page')
+    contacts = paginator.get_page(page)
     return render(request, 'ItemList/home.html',locals())
 def list(request):
     #Ord = request.POST['order']
@@ -44,9 +45,7 @@ def list(request):
         Name = request.POST['Name']
         request.session['fil'] = Name
         Items = Item.objects.filter(Name__icontains=Name).order_by('-Name')
-        if Items:
-            return render(request, 'ItemList/home.html',locals())
-        else:
+        if not Items:
             return render(request, 'ItemList/None.html',locals())
     else:
         request.session['fil'] = None
@@ -54,7 +53,10 @@ def list(request):
         mycontext = {
          'current_time': str(datetime.now())
         }
-        return render(request, 'ItemList/home.html', locals())
+    paginator = Paginator(Items, 5)
+    page = request.GET.get('page')
+    contacts = paginator.get_page(page)
+    return render(request, 'ItemList/home.html', locals())
 
 def listone(request):
     try:
