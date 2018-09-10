@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>織夢數位購物網</title>
+    {% load staticfiles %}
+    <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
+    {% block script %}{% endblock %}
+</head>
+<body>
+    <div id="warp">
+      <div id="header">
+        <div class="logo"></div>
+      </div>
+      <div id="content"> 
+        <img src="{% static "images/cartTitle2.png" %}" width="920" height="29" />
+        <div id="sidediv">
+          <div class="sidemenu">資訊中心</div>
+          <ul>
+            <li><a href="/cart/">檢視購物車</a></li>
+            <li><a href="/cartordercheck/">查詢訂單</a></li>
+            <li><a href="/index/">回到首頁</a></li>
+          </ul>
+        </div>
+        {% block content %}{% endblock %}
+        <div style="clear:both"></div>
+      </div>
+      <div id="footer"></div>
+    </div>
+</body>
+</html>

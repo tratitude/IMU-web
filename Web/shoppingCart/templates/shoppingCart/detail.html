@@ -1,0 +1,21 @@
+{% extends "shoppingCart/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div id="maindiv">
+	<table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
+	  <tr valign="top">
+		<td width="200" align="center"><p><img src="/static/images/{{product.pimages}}" />
+		  <p class="sprice">特價<br />${{product.pprice}}</p></td>
+		<td><p class="subject">產品名稱</p>
+		  <p class="desc">{{product.pname}} </p>
+		  <p class="subject">產品介紹</p>
+		  <p class="desc">{{product.pdescription}}</p></td>
+	  </tr>
+	</table>
+	<p align="center"> 
+	  <a href="/addtocart/add/{{product.id}}/"><img src="{% static "images/icon_cart.png" %}" width="102" height="27" border="0" /></a>　
+	  <a href="javascript:;" onclick="window.history.back();"><img src="{% static "images/icon_back.png" %}" width="102" height="27" border="0" /></a>
+	</p>	  
+  </div>
+{% endblock %}

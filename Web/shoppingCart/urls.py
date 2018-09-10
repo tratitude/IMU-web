@@ -5,11 +5,11 @@ from . import views
 urlpatterns = [
    path('', views.index, name='index'),
    path('index/', views.index, name='index'),
-   path(r'^detail/(\d+)/$', views.detail, name='detail'),
-   path(r'^addtocart/(\w+)/$', views.addtocart, name='addtocart'),
-   path(r'^addtocart/(\w+)/(\d+)/$', views.addtocart, name='addtocart'),
-   path(r'^cart/$', views.cart, ),
-   path(r'^cartorder/$', views.cartorder),
-   path(r'^cartok/$', views.cartok),
-   path(r'^cartordercheck/$', views.cartordercheck),
+   path('detail/<int:productid>', views.detail, name='detail'),
+   path('addtocart/<str:ctype>', views.addtocart, name='addtocart'),
+   path('addtocart/<str:ctype>/<int:productid>', views.addtocart, name='addtocart'),
+   path('cart/', views.cart, name='cart'),
+   path('cartorder/', views.cartorder, name='cartorder'),
+   path('cartok/', views.cartok, name='cartok'),
+   path('cartordercheck/', views.cartordercheck, name='cartordercheck'),
 ]
