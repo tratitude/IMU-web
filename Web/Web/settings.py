@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'shoppingCart', #購物車
+    'shoppingCart.apps.ShoppingcartConfig',
 ]
 
 MIDDLEWARE = [

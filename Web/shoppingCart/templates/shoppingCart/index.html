@@ -1,0 +1,22 @@
+{% extends "shoppingCart/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div id="maindiv">
+    {% if cartnum == 0 %}
+      <div class="message"> 您的購物車是空的！</div>
+    {% endif %}
+    {% for product in productall %}
+      <div class="block_product pro_photo">
+        <div class="pro_photo">
+          <a href="/shoppingCart/detail/{{product.id}}"><img src="/static/shoppingCart/images/{{product.pimages}}" alt="產品詳細資料" width="135" height="135" border="0" /></a>
+          <div class="pro_name"><a href="/shoppingCart/detail/{{product.id}}">{{product.pname}}</a></div>
+          <div class="pro_price">{{product.pprice}}</div>
+          <div class="pro_btn">
+            <a href="/shoppingCart/addtocart/add/{{product.id}}/"><img src="{% static "/shoppingCart/images/icon_cart.png" %}" height="27" border="0" /></a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

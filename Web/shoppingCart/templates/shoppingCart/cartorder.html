@@ -1,0 +1,79 @@
+{% extends "shoppingCart/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div id="maindiv">
+    <form action="/shoppingCart/cartok/" method="POST" name="form1" id="form1">
+      {% csrf_token %}
+      <p class="title">確定訂單內容</p>
+      <p class="subject">購物清單</p>
+      <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
+        <tr>
+          <th align="center"><strong>商品名稱</strong></th>
+          <th width="80" align="center"><strong>單價</strong></th>
+          <th width="80" align="center"><strong>數量</strong></th>
+          <th width="100" align="center"><strong>金額</strong></th>
+        </tr>
+        {% for unit in cartlist1 %}
+        <tr>
+          <td bgcolor="#FFFFFF">{{unit.0}}</td>
+          <td width="80" align="center" bgcolor="#FFFFFF">$ {{unit.1}}</td>
+          <td width="80" align="center" bgcolor="#FFFFFF">{{unit.2}}</td>
+          <td width="100" align="center" bgcolor="#FFFFFF"><strong>$ {{unit.3}}</strong></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="3" align="left" bgcolor="#FFFFFF" class="upline"><strong>小計</strong></td>
+          <td align="center" bgcolor="#FFFFFF" class="upline"> $ {{total}}</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="left" bgcolor="#FFFFFF" class="upline"><strong>運費</strong> (固定運費 100 元) </td>
+          <td width="100" align="center" bgcolor="#FFFFFF" class="upline">$ 100</td>
+        </tr>
+        <tr>
+          <td colspan="3" align="left" bgcolor="#FFFFFF"><strong>總計</strong></td>
+          <td align="center" bgcolor="#FFFFFF"><strong><font color="#FF0000">$ {{grandtotal}}</font></strong></td>
+        </tr>
+      </table>
+      <p class="subject">客戶資訊</p>
+      <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
+        <tr>
+          <th width="100" align="center">資訊</th>
+          <th>內容</th>
+        </tr>
+        <tr>
+          <td width="100" align="center" bgcolor="#FFFFFF"><strong>姓名</strong></td>
+          <td bgcolor="#FFFFFF"><input name="CustomerName" type="text" class="normalinput" id="CustomerName" value="{{customname1}}" required/></td>
+        </tr>
+        <tr>
+          <td width="100" align="center" bgcolor="#FFFFFF"><strong>聯絡電話</strong></td>
+          <td bgcolor="#FFFFFF"><input name="CustomerPhone" type="text" class="normalinput" id="CustomerPhone" value="{{customphone1}}" required/></td>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#FFFFFF"><strong>住址</strong></td>
+          <td bgcolor="#FFFFFF"><input name="CustomerAddress" type="text" class="normalinput" id="CustomerAddress" size="40" value="{{customaddress1}}" required/></td>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#FFFFFF"><strong>電子郵件</strong></td>
+          <td bgcolor="#FFFFFF"><input name="CustomerEmail" type="text" class="normalinput" id="CustomerEmail" value="{{customemail1}}" required/></td>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#FFFFFF"><strong>付款方式</strong></td>
+          <td bgcolor="#FFFFFF"><input name="paytype" type="radio" value="ATM 轉帳" checked="checked" />
+            ATM 轉帳
+            <input name="paytype" type="radio" value="郵政劃撥" />
+            郵政劃撥</td>
+        </tr>
+      </table>
+      <div style="clear:both"></div>
+      <table border="0" align="center" cellpadding="10" cellspacing="0">
+        <tr>
+          <td><input type="button" name="button1" value="繼續購物" onclick="window.location='/shoppingCart/index/'" /></td>
+          <td><input type="button" name="button2" value="修改購物車內容" onclick="window.location='/shoppingCart/cart/'" /></td>
+          <td><input type="submit" name="Submit" value="確認購買" /></td>
+        </tr>
+      </table>
+      <span style="color:red">{{message1}}</span>
+    </form>
+  </div>
+{% endblock %}

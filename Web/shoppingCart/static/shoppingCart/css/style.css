@@ -1,0 +1,230 @@
+@charset "utf-8";
+body {
+	background-color: #666;
+}
+a:link {
+	color: #666;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #333;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+#warp {
+	width: 950px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+#warp #content {
+	background-color: #EEE;
+	padding: 10px;
+}
+#warp #content #sidediv {
+	clear: right;
+	float: right;
+	width: 199px;
+	margin-top: 10px;
+	padding: 10px;
+}
+#warp #content #sidediv .sidemenu {
+	border-radius: 20px 0px 20px 0px;
+	color: #FFF;
+	background-color: #666;
+	padding: 5px;
+	font-weight: bold;
+	text-align: center;
+}
+#warp #content #maindiv {
+	width: 690px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCC;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+#warp #content .gridlist {
+	width: 700px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCC;
+}
+.block_product {
+	float: left;
+	height: 260px;
+	width: 160px;
+	background-color: #FFFFFF;
+	border-radius: 0px 20px 0px 20px;
+	border: 1px solid #CCC;
+	/* [disabled]margin-top: 10px; */
+	margin-right: 10px;
+	margin-bottom: 10px;
+	-webkit-transition: background-color 10ms ease 0s;
+	-moz-transition: background-color 10ms ease 0s;
+	-ms-transition: background-color 10ms ease 0s;
+	-o-transition: background-color 10ms ease 0s;
+	transition: background-color 10ms ease 0s;
+}
+.block_product:hover {
+	background-color: #CCC;
+}
+.block_product .pro_photo {
+	height: 135px;
+	width: 135px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	-webkit-transition: color;
+	-moz-transition: color;
+	-ms-transition: color;
+	-o-transition: color;
+	transition: color;
+}
+.block_product .pro_photo .pro_name {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10pt;
+	font-weight: bolder;
+	color: #666;
+	height: 3.2em;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-top: 2px;
+}
+.block_product .pro_photo .pro_price {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #F00;
+	text-align: center;
+}
+.block_product .pro_photo .pro_btn {
+	text-align: center;
+	margin-top: 5px;
+}
+
+.nav_bar {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 120%;
+	width: 320px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#form1 {
+	margin: 0px;
+}
+#form1 th {
+	color: #FFF;
+	background-color: #999;
+}
+.title {
+	color: #000;
+	background-color: #F90;
+	display: block;
+	padding: 5px;
+	width: 120px;
+	text-align: center;
+	text-shadow: 1px 1px #CCC;
+	font-weight: bold;
+}
+
+.desc {
+	font-size: 11pt;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	margin-left: 1em;
+	line-height: 150%;
+}
+.sprice {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bolder;
+	color: #F00;
+}
+a.delcart {
+	color: #F00;
+	background-image: url(images/cross.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	display: block;
+	padding-left: 16px;
+	text-decoration: none;
+}
+#warp #header {
+	background-image: url(images/cartTop.png);
+	height: 215px;
+	width: 950px;
+}
+#warp #header .logo {
+	background-image: url(images/logo.png);
+	height: 49px;
+	width: 272px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+#warp #footer {
+	background-image: url(images/cartbot.png);
+	height: 48px;
+	width: 950px;
+}
+#sidediv ul {
+	list-style-type: none;
+	list-style-image: url(images/icon_red.gif);
+	line-height: 150%;
+}
+.message {
+	width: 90%;
+	color: #069;
+	background-color: #FCC;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px;
+	background-image: url(images/icon_warning.png);
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	margin-bottom: 10px;
+}
+.nav_bar a {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11pt;
+	color: #F60;
+	background-image: url(images/icon_red.gif);
+	display: block;
+	background-repeat: no-repeat;
+	width: 80px;
+	background-position: left center;
+	text-indent: 20px;
+	float: left;
+}
+.subject {
+	font-size: 12pt;
+	font-weight: bold;
+	color: #060;
+	margin-bottom: 10px;
+	background-image: url(images/icon_green.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 16px;
+}
