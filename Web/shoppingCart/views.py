@@ -55,7 +55,7 @@ def addtocart(request, ctype=None, productid=None):
             temlist.append(str(product.pprice))  #總價
             cartlist.append(temlist)  #將暫時串列加入購物車
         request.session['cartlist'] = cartlist  #購物車寫入session
-        return redirect('/cart/')
+        return redirect('/shoppingCart/cart/')
     elif ctype == 'update':  #更新購物車
         n = 0
         for unit in cartlist:
@@ -63,16 +63,16 @@ def addtocart(request, ctype=None, productid=None):
             unit[3] = str(int(unit[1]) * int(unit[2]))  #取得總價
             n += 1
         request.session['cartlist'] = cartlist
-        return redirect('/cart/')
+        return redirect('/shoppingCart/cart/')
     elif ctype == 'empty':  #清空購物車
         cartlist = []  #設購物車為空串列
         request.session['cartlist'] = cartlist
-        return redirect('/index/')
+        return redirect('/shoppingCart/index/')
     elif ctype == 'remove':  #刪除購物車中商品
         del cartlist[int(productid)]  #從購物車串列中移除商品
         request.session['cartlist'] = cartlist
-        return redirect('/cart/')
-    return redirect('/cart/')
+        return redirect('/shoppingCart/cart/')
+    return redirect('/shoppingCart/cart/')
 
 def cartorder(request):
     global cartlist, message, customname, customphone, customaddress, customemail
@@ -120,7 +120,7 @@ def cartok(request):
         send_simple_message(mailfrom, mailpw, mailto, mailsubject, mailcontent)  #寄信
         cartlist = []
         request.session['cartlist'] = cartlist
-        return render(request, "cartok.html", locals())
+        return render(request, "shoppingCart/cartok.html", locals())
 
 def cartordercheck(request):  #查詢訂單
     orderid = request.GET.get('orderid', '')  #取得輸入id

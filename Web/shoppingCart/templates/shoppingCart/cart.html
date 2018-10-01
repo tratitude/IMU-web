@@ -12,7 +12,7 @@
 
 {% block content %}
   <div id="maindiv">
-    <form action="/addtocart/update/" method="post" name="form1" id="form1">
+    <form action="/shoppingCart/addtocart/update/" method="post" name="form1" id="form1">
       {% csrf_token %}
       <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
         <tr>
@@ -24,7 +24,7 @@
         </tr>
         {% for unit in cartlist1 %}
         <tr>
-          <td bgcolor="#FFFFFF"><a href="/addtocart/remove/{{forloop.counter0}}" class="delcart" onClick="confirmLink('您確定要刪除這個商品嗎？'); return document.returnValue">刪除</a></td>
+          <td bgcolor="#FFFFFF"><a href="/shoppingCart/addtocart/remove/{{forloop.counter0}}" class="delcart" onClick="confirmLink('您確定要刪除這個商品嗎？'); return document.returnValue">刪除</a></td>
           <td align="left" bgcolor="#FFFFFF">{{unit.0}}</td>
           <td width="80" align="center" bgcolor="#FFFFFF">$ {{unit.1}}</td>
           <td width="80" align="center" bgcolor="#FFFFFF"><input name="qty{{forloop.counter0}}" type="text" id="qty{{forloop.counter0}}" value="{{unit.2}}" size="2" /></td>
@@ -46,10 +46,10 @@
       </table>
       <table border="0" align="center" cellpadding="10" cellspacing="0">
         <tr>
-          <td><input type="button" name="Continue" value="繼續購物" onclick="window.location='/index/'" /></td>
+          <td><input type="button" name="Continue" value="繼續購物" onclick="window.location='/shoppingCart/index/'" /></td>
           <td><input name="Submit" type="submit" id="Submit" value="更新購物車"></td>
-          <td><input name="Empty" type="button" id="Empty" onclick="window.location='/addtocart/empty/'" value="清空購物車" /></td>
-          <td><input name="Order" type="button" id="Order" onclick="window.location='/cartorder/'" value="我要結帳" /></td>
+          <td><input name="Empty" type="button" id="Empty" onclick="window.location='/shoppingCart/addtocart/empty/'" value="清空購物車" /></td>
+          <td><input name="Order" type="button" id="Order" onclick="window.location='/shoppingCart/cartorder/'" value="我要結帳" /></td>
         </tr>
       </table>
     </form>

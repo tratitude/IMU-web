@@ -9,11 +9,11 @@
     {% for product in productall %}
       <div class="block_product pro_photo">
         <div class="pro_photo">
-          <a href="/detail/{{product.id}}"><img src="/static/images/{{product.pimages}}" alt="產品詳細資料" width="135" height="135" border="0" /></a>
-          <div class="pro_name"><a href="/detail/{{product.id}}">{{product.pname}}</a></div>
+          <a href="/shoppingCart/detail/{{product.id}}"><img src="/static/shoppingCart/images/{{product.pimages}}" alt="產品詳細資料" width="135" height="135" border="0" /></a>
+          <div class="pro_name"><a href="/shoppingCart/detail/{{product.id}}">{{product.pname}}</a></div>
           <div class="pro_price">{{product.pprice}}</div>
           <div class="pro_btn">
-            <a href="/addtocart/add/{{product.id}}/"><img src="{% static "images/icon_cart.png" %}" height="27" border="0" /></a>
+            <a href="/shoppingCart/addtocart/add/{{product.id}}/"><img src="{% static "/shoppingCart/images/icon_cart.png" %}" height="27" border="0" /></a>
           </div>
         </div>
       </div>

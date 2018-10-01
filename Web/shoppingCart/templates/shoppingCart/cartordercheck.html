@@ -4,7 +4,7 @@
 {% block content %}
   <div id="maindiv">
     {% if firstsearch == 1 %}
-      <form action="/cartordercheck/" method="GET" name="form1">
+      <form action="/shoppingCart/cartordercheck/" method="GET" name="form1">
         <p class="title">訂單查詢 </p>
         <table border="0" align="center" cellpadding="10" cellspacing="0">
           <tr>
@@ -19,7 +19,7 @@
     {% else %}
       {% if notfound == 1 %}
         <div class="message">對不起，資料庫中並沒相關的資訊，請重新輸入。</div>
-        <form action="/cartordercheck/" method="GET" name="form2">
+        <form action="/shoppingCart/cartordercheck/" method="GET" name="form2">
           <p class="title">訂單查詢 </p>
           <table border="0" align="center" cellpadding="10" cellspacing="0">
             <tr>
@@ -88,7 +88,7 @@
         <div style="clear:both"></div>
         <table border="0" align="center" cellpadding="10" cellspacing="0">
           <tr>
-            <td><input type="button" name="Submit" value="回到首頁" onclick="window.location='/index/'" /></td>
+            <td><input type="button" name="Submit" value="回到首頁" onclick="window.location='/shoppingCart/index/'" /></td>
           </tr>
         </table>
       {% endif %}

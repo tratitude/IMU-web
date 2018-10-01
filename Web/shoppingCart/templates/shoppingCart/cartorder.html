@@ -3,7 +3,7 @@
 
 {% block content %}
   <div id="maindiv">
-    <form action="/cartok/" method="POST" name="form1" id="form1">
+    <form action="/shoppingCart/cartok/" method="POST" name="form1" id="form1">
       {% csrf_token %}
       <p class="title">確定訂單內容</p>
       <p class="subject">購物清單</p>
@@ -68,8 +68,8 @@
       <div style="clear:both"></div>
       <table border="0" align="center" cellpadding="10" cellspacing="0">
         <tr>
-          <td><input type="button" name="button1" value="繼續購物" onclick="window.location='/index/'" /></td>
-          <td><input type="button" name="button2" value="修改購物車內容" onclick="window.location='/cart/'" /></td>
+          <td><input type="button" name="button1" value="繼續購物" onclick="window.location='/shoppingCart/index/'" /></td>
+          <td><input type="button" name="button2" value="修改購物車內容" onclick="window.location='/shoppingCart/cart/'" /></td>
           <td><input type="submit" name="Submit" value="確認購買" /></td>
         </tr>
       </table>
