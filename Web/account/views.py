@@ -11,7 +11,7 @@ def index(request):
 	   message="登入成功"
 	   return render(request, "index.html", locals())
 	else:		
-		return redirect("/login/")			
+		return redirect("/account/login/")			
 		
 def login(request):
 	if request.method == 'POST':
@@ -21,7 +21,7 @@ def login(request):
 		if user is not None:
 			if user.is_active:
 				auth.login(request,user)
-				return redirect("/index/")			
+				return redirect("/account/index/")			
 			else:
 				message = '帳號尚未啟用！'
 				return render(request, "login.html", locals())
@@ -31,7 +31,7 @@ def login(request):
 	
 def logout(request):
 	auth.logout(request)	
-	return redirect('/login/')
+	return redirect('/account/login/')
 	message="登出成功"
 	
 def sign(request):
@@ -63,5 +63,5 @@ def sign(request):
 			user.is_active=True
 			user.save()
 			detail=user_detail.objects.create(user=user,phone=user_phone)
-			return redirect('/login/')
+			return redirect('/account/login/')
 	return render(request, "sign.html", locals())
