@@ -11,7 +11,7 @@ def index(request):
 	   message="登入成功"
 	   return render(request, "index.html", locals())
 	else:		
-		return redirect("/account/login/")			
+		return redirect("/account/login/")		
 		
 def login(request):
 	if request.method == 'POST':
