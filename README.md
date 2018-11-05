@@ -1,5 +1,7 @@
 # IMU-web
 Django 2.0.5.
+- 帳號： admin
+- 密碼： imuweb857
 ## 注意事項
 - 建立app流程
     1. 建立新的branch（branch名稱跟app名稱一樣）, 並在該branch 進行開發
