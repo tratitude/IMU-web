@@ -1,0 +1,18 @@
+<html>
+<form action="." method="POST" name="form1">
+    {% csrf_token %}
+	<p>帳號:{{username}}</p>
+	<p><a href="/account/modify_password/">修改密碼</a></p>
+	<p>修改姓名:
+	<input type="text" value="{{name}}" name="firstname" id="firstname" />
+	</p>
+	<p>電話:
+	<input type="text" value="{{phone}}" name="phone" id="phone" />
+	</p>
+	<p>email:
+	<input type="email" value="{{mail}}" name="email" id="email" />
+	</p>
+	<input type="submit" name="button" id="button" value="提交" />
+	<input type="button" value="返回" onclick="location='/account/index/'"/>
+</form>
+</html>
