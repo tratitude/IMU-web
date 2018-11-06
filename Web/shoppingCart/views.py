@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from . import models
 from smtplib import SMTP, SMTPAuthenticationError, SMTPException
 from email.mime.text import MIMEText
+from django.contrib.auth import authenticate
+from django.contrib import auth
+from django.contrib.auth.models import User
 
 message = ''
 cartlist = [] # 購買商品串列
@@ -75,6 +78,8 @@ def addtocart(request, ctype=None, productid=None):
     return redirect('/shoppingCart/cart/')
 
 def cartorder(request):
+    if not request.user.is_authenticated:		#確認登入狀態
+        return redirect("/account/login/")
     global cartlist, message, customname, customphone, customaddress, customemail
     global shippingFee
     cartlist1 = cartlist
