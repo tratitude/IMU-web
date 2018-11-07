@@ -1,4 +1,5 @@
 from django.db import models
+from account.models import user_detail
 
 class ProductModel(models.Model):
     pname =  models.CharField(max_length=100, default='')
@@ -12,6 +13,7 @@ class OrdersModel(models.Model):
     subtotal = models.IntegerField(default=0)
     shipping = models.IntegerField(default=0)
     grandtotal = models.IntegerField(default=0)
+    #customaccount = models.ForeignKey('user_detail.user', on_delete=models.CASCADE)
     customname =  models.CharField(max_length=100, default='')
     customemail =  models.CharField(max_length=100, default='')
     customaddress =  models.CharField(max_length=100, default='')
