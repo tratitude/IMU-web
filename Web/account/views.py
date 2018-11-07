@@ -85,6 +85,8 @@ def modify_password(request):
 		return render(request,"account/modify_password.html",locals())
 		
 def sign(request):
+	if request.user.is_authenticated:		#確認登入狀態
+		return redirect("/account/index/")
 	if request.method == 'POST':
 		name=request.POST['username']
 		firstname = request.POST['firstname']
