@@ -5,6 +5,7 @@ from email.mime.text import MIMEText
 from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 message = ''
 cartlist = [] # 購買商品串列
@@ -95,6 +96,10 @@ def cartorder(request):
     return render(request, "shoppingCart/cartorder.html", locals())
 
 def cartok(request):
+    if not request.user.is_authenticated:		#確認登入狀態
+        return redirect("/account/login/")
+    else:
+        customaccount = request.user
     global cartlist, message, customname, customphone, customaddress, customemail
     global shippingFee
     total = 0
@@ -112,7 +117,7 @@ def cartok(request):
         message = '姓名、電話、住址及電子郵件皆需輸入'
         return redirect('/cartorder/')
     else:
-        unitorder = models.OrdersModel.objects.create(subtotal=total, shipping=shippingFee, grandtotal=grandtotal, customname=customname, customphone=customphone, customaddress=customaddress, customemail=customemail, paytype=paytype) #建立訂單
+        unitorder = models.OrdersModel.objects.create(subtotal=total, shipping=shippingFee, grandtotal=grandtotal, customaccount=customaccount, customname=customname, customphone=customphone, customaddress=customaddress, customemail=customemail, paytype=paytype) #建立訂單
         for unit in cartlist:  #將購買商品寫入資料庫
             total = int(unit[1]) * int(unit[2])
             unitdetail = models.DetailModel.objects.create(dorder=unitorder, pname=unit[0], unitprice=unit[1], quantity=unit[2], dtotal=total)

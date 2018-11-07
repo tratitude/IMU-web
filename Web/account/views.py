@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.models import User
 from account.models import user_detail
+#from django.contrib.auth import update_session_auth_hash
 # username -> user內建的帳號名 		拿來當作帳號使用
 # firstname -> user內建的first_name	拿來當作用戶姓名使用
 def index(request):
