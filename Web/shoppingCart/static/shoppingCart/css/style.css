@@ -165,22 +165,22 @@ a.delcart {
 	text-decoration: none;
 }
 #warp #header {
-	background-image: url(images/cartTop.png);
+	background-image: url(images/rockclimbing02.png);
 	height: 215px;
 	width: 950px;
 }
 #warp #header .logo {
-	background-image: url(images/logo.png);
+	background-image: url(images/home-icon.png);
 	height: 49px;
 	width: 272px;
 	margin-right: auto;
 	margin-left: auto;
-	padding-top: 10px;
+	padding-top: 150px;
 	background-repeat: no-repeat;
 	background-position: bottom;
 }
 #warp #footer {
-	background-image: url(images/cartbot.png);
+	background-image: url(images/rockclimbing.jpg);
 	height: 48px;
 	width: 950px;
 }

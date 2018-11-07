@@ -1,3 +1,7 @@
+{% extends "shoppingCart/base.html" %}
+
+{% block content %}
+
 <html>
 <form action="." method="POST" name="form1">
     {% csrf_token %}
@@ -29,3 +33,5 @@
     <input type="submit" name="button" id="button" value="提交" />  
 </form>
 </html>
+
+{% endblock %}

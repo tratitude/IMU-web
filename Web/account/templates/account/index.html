@@ -1,3 +1,7 @@
+{% extends "shoppingCart/base.html" %}
+
+{% block content %}
+
 <html>
 {{message}}
 <p>登入者:{{name}}</p>
@@ -6,3 +10,5 @@
 <input type="button" value="返回主頁" onclick="location='/shoppingCart/index/'">
 <input type="button" value="訂單查詢" >
 </html>
+
+{% endblock %}
