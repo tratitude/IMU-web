@@ -20,8 +20,14 @@ from . import views
 urlpatterns = [
     path('', views.home),
     path('Bulletin/', views.Bulletin),
+<<<<<<< HEAD
     path('artical/<int:artical>', views.artical),
     path('artical/update/<int:artical>', views.update_artical),
     path('delete_artical/<int:artical>', views.delete_artical),
+=======
+    #path('Bulletin/<char:type>/<char:keyword>', views.search_artical),
+	path('artical/<int:artical>', views.artical),
+	path('delete_artical/<int:artical>', views.delete_artical),
+>>>>>>> 10ca378b96dadcbc89af91458e5a2a94c3af6fd3
     path('Bulletin/input_artical/', views.input_artical),
 ]
