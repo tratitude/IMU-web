@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{artical.artical_title}}</title>
+<body>
+	<p>{{artical.artical_title}}</p>
+	<p>建立時間:{{artical.artical_add_date}}</p>
+	<p>上次修改時間{{artical.artical_mod_date}}</p>
+	<p>內文:{{artical.artical_content}}</p>
+	<p><a href="/home/Bulletin/">返回目錄</a></p>
+	<p><a href="/home/delete_artical/{{artical.id}}">刪除文章</a></p>
+	<p><a href="/home/artical/update/{{artical.id}}">修改文章</a></p>
+</body>
+</head>
+</html>

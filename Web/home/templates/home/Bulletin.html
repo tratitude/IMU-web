@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>公佈欄</title>
+<body>
+    <form action="." method="POST" name="search_artical_form">
+	{% csrf_token %}
+		<p>搜尋:<input type="text" name="keyword" id="keyword"/>
+		項目:<input type="radio" name="type" id="type"  value="active" required="required"/>活動
+		<input type="radio" name="type" id="type"  value="bulletin" required="required"/>公告
+		<input type="radio" name="type" id="type"  value="all" required="required"/>全部
+		<p><input type="submit" name="button" id="button" value="提交" /></p>
+		</p> 
+	</form>
+	{% for artical_num in articalall %}
+		<p><a href="/home/artical/{{artical_num.id}}">標題:{{artical_num.artical_title}}</a></p>
+    {% endfor %}
+	<a href="">過去文章</a>
+	<a href="/home/Bulletin/input_artical/">輸入文章</a>
+	<a href="/home/">首頁</a>
+</body>
+</head>
+</html>
