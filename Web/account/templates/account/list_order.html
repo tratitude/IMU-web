@@ -1,0 +1,14 @@
+{% extends "shoppingCart/base.html" %}
+
+{% block content %}
+<p>{{ customerAccount }}</p>
+<tr>
+    <td class="{% cycle 'dorder' 'pname' as order %}">...</td>
+    <td class="{{ order }}">...</td>
+</tr>
+<tr>
+    <td class="{% cycle order %}">...</td>
+    <td class="{{ order }}">...</td>
+</tr>
+
+{% endblock %}

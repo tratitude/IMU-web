@@ -12,4 +12,5 @@ urlpatterns = [
 	path('sign/', views.sign),
 	path('modify/',views.modify),
 	path('modify_password/',views.modify_password),
+	path('list_order/', views.list_order)
 ]

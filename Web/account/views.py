@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.models import User
 from account.models import user_detail
+from shoppingCart.models import DetailModel, OrdersModel
 #from django.contrib.auth import update_session_auth_hash
 # username -> user內建的帳號名 		拿來當作帳號使用
 # firstname -> user內建的first_name	拿來當作用戶姓名使用
@@ -116,3 +117,10 @@ def sign(request):
 		detail=user_detail.objects.create(user=user,phone=user_phone)
 		return redirect('/account/login/')
 	return render(request, "account/sign.html", locals())
+def list_order(request):
+	if not request.user.is_authenticated:		#確認登入狀態
+		return redirect("/account/login/")
+	customerAccount = request.user
+	orders = OrdersModel(customaccount = customerAccount)
+	detail = DetailModel(dorder = orders)
+	return render(request, "account/list_order.html", locals())
